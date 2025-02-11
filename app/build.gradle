@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 33 // 升级到 Android 13
+    defaultConfig {
+        applicationId "com.tangguna.imageswitcher.imageswitcher"
+        minSdkVersion 21 // 建议至少 21
+        targetSdkVersion 33 // 升级到 Android 13
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner" // 升级到 AndroidX 测试框架
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.5.1' // 升级到 AndroidX
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // 升级到 AndroidX
+    testImplementation 'junit:junit:4.13.2' // 升级 JUnit 版本
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3' // 升级 AndroidX 测试框架
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0' // 升级 Espresso 版本
+    implementation project(':library')
+    implementation 'com.jakewharton:butterknife:10.2.3' // 升级 ButterKnife 版本
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3' // 升级 ButterKnife 编译器版本
+    //eventbus
+    implementation 'org.greenrobot:eventbus:3.3.1' // 升级 EventBus 版本
+    implementation 'com.github.bumptech.glide:glide:4.13.2' // 升级 Glide 版本
+}
